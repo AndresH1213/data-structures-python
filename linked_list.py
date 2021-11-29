@@ -143,7 +143,19 @@ class LinkedList:
 
 			return current
 
-		
+	def node_at_index(self, index):
+		if index == 0:
+			return self.head
+
+		else:
+			current = self.head
+			position = 0
+
+			while position < index:
+				current = current.next_node
+				position += 1
+
+			return current	
 
 
 	def __repr__(self):
@@ -175,8 +187,8 @@ l.add(14)
 l.add(45)
 n = l.search(14)
 l.insert(13, 2)
-print(l)
+# print(l)
 removed = l.remove_at_index(3)
-print(removed, 'none')
-print(n)
-print(l)
+# print(removed, 'none')
+# print(n)
+# print(l)
