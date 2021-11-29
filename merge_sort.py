@@ -9,6 +9,9 @@ def merge_sort(plist):
 		Divide: Find the midpoint of the list and divide into sublists
 		Conquer: Recursively sort the sublists created in previous step
 		Combine: Merge the sorted sublists created in previous step
+
+		Takes O(kn log n) time
+		This takes a linear space complexity
 	"""
 
 	if len(plist) <= 1:
@@ -24,10 +27,12 @@ def split(plist):
 	"""
 		Divide the unsorted lsit at midpoint into sublists
 		Returns two sublists - left and right
+
+		Takes overall O(k log(n)) time
 	"""
 
 	mid = len(plist)//2
-	left = plist[:mid]
+	left = plist[:mid] # this takes O(k) in python where k is the size of the splice
 	right = plist[mid:]
 
 	return left, right
@@ -36,6 +41,8 @@ def merge(left, right):
 	"""
 		Merges two lists (arrays), sorting them in the process
 		Returns a new merged list
+
+		Runs in overall O(n) time
 	"""
 	l = []
 	i = 0
