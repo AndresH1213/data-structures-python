@@ -66,7 +66,7 @@ def merge(left, right):
 
 	return l
 
-alist = [54,62,43,45,34,65,321,65,22,2]
+alist = [54 , 62, 43, 45, 34, 65, 321, 65, 22, 2]
 
 l = merge_sort(alist)
 

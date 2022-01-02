@@ -4,6 +4,11 @@ import math
 
 numbers = [math.ceil(x * random.random()) for x in range(100000)]
 def quicksort(values):
+	"""
+	There are many differents versions of this algorithm
+	Picking different elements as the pivot, can be the
+	first one, last one or a random element
+	"""
 	if len(values) <= 1:
 		return values
 	less_than_pivot = []
