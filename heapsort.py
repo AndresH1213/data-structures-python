@@ -1,6 +1,4 @@
 
-
-from heapq import heapify
 def heapify(l, i):
     left_child = 2 * i + 1
     right_child = 2 * i + 2
