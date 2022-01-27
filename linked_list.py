@@ -17,8 +17,8 @@ class LinkedList:
 	"""
 		Singly linked list
 	"""
-	def __init__(self):
-		self.head = None
+	def __init__(self, node=None):
+		self.head = node
 
 	def is_empty(self):
 		return self.head == None
