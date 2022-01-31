@@ -35,7 +35,7 @@ def heapsort(l):
         l2.append(l[0])
 
         l[0], l[-1] = l[-1], l[0]
-        
+        # Continue with the list without the last one
         l = l[:-1]
 
         l = heapify(l, 0)
