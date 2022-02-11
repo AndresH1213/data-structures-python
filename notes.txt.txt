@@ -1,6 +1,0 @@
-Big O Notation
-
-- Tells you number fo times an operation is perfomred
-- Doesn't describe duration of operation
-- A useful tool for quickly describing how the run time of and algorithm increases as the data set
- it's operating on gets really, really big
