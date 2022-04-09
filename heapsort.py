@@ -8,26 +8,27 @@ def heapify(l, i):
             min = left_child
         else:
             min = right_child
-        
+
         if l[i] > l[min]:
-            
+
             l[i], l[min] = l[min], l[i]
 
             heapify(l, min)
-    
-    # Si el nodo tiene un hijo
+
+    # If the node has a child
     elif left_child <= len(l) - 1:
         if l[i] > l[left_child]:
             aux = l[i]
             l[i] = l[left_child]
             l[left_child] = aux
-    
+
     return l
+
 
 def heapsort(l):
     l2 = []
 
-    for i in range(len(l)// 2 - 1, -1, -1):
+    for i in range(len(l) // 2 - 1, -1, -1):
         l = heapify(l, i)
 
     for i in range(0, len(l)):
@@ -39,10 +40,10 @@ def heapsort(l):
         l = l[:-1]
 
         l = heapify(l, 0)
-    
+
     return l2
 
 
-array = [1,34,5656,45234,21,456]
+array = [1, 34, 5656, 45234, 21, 456]
 print(array)
 print(heapsort(array))
