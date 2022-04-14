@@ -27,7 +27,7 @@ class Cell:
         self.color = WHITE
         self.neighbors = []
         self.width = width
-        self.tota_rows = total_rows
+        self.total_rows = total_rows
 
     def get_pos(self):
         return self.rows, self.col
@@ -76,7 +76,20 @@ class Cell:
             win, self.color, (self.x, self.y, self.width, self.width))
 
     def update_neighbors(self, grid):
-        pass
+        self.neighbors = []
+        # DOWN
+        if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier():
+            self.neighbors.append(grid[self.row + 1][self.col])
+
+        if self.row > 0 and not grid[self.row - 1][self.col].is_barrier():  # UP
+            self.neighbors.append(grid[self.row - 1][self.col])
+
+        if self.col > 0 and not grid[self.row][self.col - 1].is_barrier():  # LEFT
+            self.neighbors.append(grid[self.row][self.col - 1])
+
+        # RIGHT
+        if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier():
+            self.neighbors.append(grid[self.row][self.col + 1])
 
     def __lt__(self, other):
         return False
@@ -137,11 +150,15 @@ def main(win, width):
     end = None
 
     run = True
+    started = False
     while run:
         draw(win, grid, ROWS, width)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+
+            if started:
+                continue
 
             if pygame.mouse.get_pressed()[0]:  # LEFT
                 pos = pygame.mouse.get_pos()
@@ -167,6 +184,10 @@ def main(win, width):
                     start = None
                 elif spot == end:
                     end = None
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE and not started:
+                    pass
 
     pygame.quit()
 
