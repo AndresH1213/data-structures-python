@@ -48,7 +48,7 @@ class Cell:
         return self.color == TURQUOISE
 
     def reset(self):
-        return self.color == WHITE
+        self.color = WHITE
 
     def make_start(self):
         self.color = ORANGE
@@ -66,7 +66,7 @@ class Cell:
         self.color = ORANGE
 
     def make_end(self):
-        self.color == PURPLE
+        self.color = PURPLE
 
     def make_path(self):
         self.color = PURPLE
